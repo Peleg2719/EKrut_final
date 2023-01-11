@@ -16,7 +16,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class EndOfMonthChecker extends Application {
-    private Label label;
+    
     //private List<Month> offMonths = Arrays.asList(Month.JANUARY, Month.JULY); // list of "off" months
     List<Month> allMonths = Arrays.asList(Month.values());
     Map<Month,Boolean> map=new HashMap<>();
@@ -27,15 +27,6 @@ public class EndOfMonthChecker extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        label = new Label();
-        StackPane root = new StackPane();
-        root.getChildren().add(label);
-
-        Scene scene = new Scene(root, 300, 250);
-
-        primaryStage.setTitle("End of Month Checker");
-        primaryStage.setScene(scene);
-        primaryStage.show();
 
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
         Task<Void> task = new Task<Void>() {
@@ -70,7 +61,6 @@ public class EndOfMonthChecker extends Application {
                 }
             }
         };
-        label.textProperty().bind(task.messageProperty());
         executor.scheduleAtFixedRate(task, 0, 1, TimeUnit.SECONDS);
     }
 }
