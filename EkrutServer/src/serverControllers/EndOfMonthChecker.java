@@ -45,6 +45,7 @@ public class EndOfMonthChecker extends Application {
                             //call the sql to create something new
                         }
                 	}
+                	
                     //LocalDate date = LocalDate.now();
                     if (date.getDayOfMonth() == date.lengthOfMonth()) {
                     	//call the sql to create something new
