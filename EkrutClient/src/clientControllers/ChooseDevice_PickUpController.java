@@ -11,6 +11,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class ChooseDevice_PickUpController {
@@ -28,6 +30,8 @@ public class ChooseDevice_PickUpController {
 	private ComboBox<String> cmbDevice;
 	@FXML
 	private Label lblError;
+    @FXML
+    private ImageView ChooseDeviceImage;
 
 	@FXML
 	public void initialize() {
@@ -37,6 +41,9 @@ public class ChooseDevice_PickUpController {
 		for (Device device : ChatClient.deviceController.getAreaDevices()) {
 			cmbDevice.getItems().add(device.getDeviceName());
 		}
+		
+		Image image = new Image("/images/PickUpImage.jpeg");
+		ChooseDeviceImage.setImage(image);
 	}
 
 	@FXML

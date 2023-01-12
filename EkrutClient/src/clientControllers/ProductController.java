@@ -69,7 +69,7 @@ public class ProductController {
 		//if the cart is full thats means that the user press the back button in the confirmation screen so we dont want to do the same discounts twice
 		if (ChatClient.cartController.getCart().size() == 0) {
 			//if there are any sales
-		 if (checkSale() == true) {
+		  if (checkSale() == true) {
 			imageSale.setVisible(true);
 			for (Sale s : sales) {
 				//initialize the product price after discount
@@ -94,6 +94,11 @@ public class ProductController {
 		 }
 		}
 		if(sales.size()>0) {
+			Image image = new Image("/images/sale.png");
+			imageSale.setImage(image);
+			imageSale.setVisible(true);
+		}
+		if(checkSale()==true) {
 			Image image = new Image("/images/sale.png");
 			imageSale.setImage(image);
 			imageSale.setVisible(true);
